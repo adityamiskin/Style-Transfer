@@ -1,52 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Style Transfer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+			defer
+		></script>
+		<script src="https://cdn.tailwindcss.com" defer></script>
+		<script src="js/script.js" defer></script>
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Style Transfer</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+	<body class="bg-[#f3f2ef]">
+		<div id="container" class="mt-8 flex flex-col justify-center items-center">
+			<div class="m-6 text-5xl">
+				<h1>Style Transfer</h1>
+			</div>
 
-<body>
-  <div id="container">
-    <div class="header">
-      <h1>Style Transfer</h1>
-    </div>
+			<div class="p-8 w-9/12">
+				<p>
+					<span class="font-bold">Neural style transfer</span> is an
+					optimization technique used to take two images—a content image and a
+					style reference image (such as an artwork by a famous painter)—and
+					blend them together so the output image looks like the content image,
+					but “painted” in the style of the style reference image. This is
+					implemented by optimizing the output image to match the content
+					statistics of the content image and the style statistics of the style
+					reference image. These statistics are extracted from the images using
+					a convolutional network.
+				</p>
+			</div>
+			<div class="flex items-center justify-evenly w-full">
+				<div
+					class="drag-area rounded-md border-2 border-dashed border-black m-2.5 flex justify-center flex-col p-5 items-center"
+					id="drag-area1"
+				>
+					<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+					<h3>Drag & Drop to Upload your style image</h3>
+					<span class="font-bold">OR</span>
+					<button
+						id="btn1"
+						type="button"
+						class="rounded-md p-1.5 text-base font-semibold border-2 border-solid border-black m-1.5"
+					>
+						Browse File
+					</button>
+					<input type="file" accept="image/*" id="style" hidden />
+				</div>
 
-    <div class="content">
-      <div class="drag-area1">
-        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <h3>Drag & Drop to Upload your style image</h3>
-        <span>OR</span>
-        <button id="btn1">Browse File</button>
-        <input type="file" accept="image/*" hidden id="input1">
-      </div>
+				<div
+					class="drag-area rounded-md border-2 border-dashed border-black m-2.5 flex justify-center flex-col p-5 items-center"
+					id="drag-area2"
+				>
+					<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+					<h3>Drag & Drop to Upload your style image</h3>
+					<span class="font-bold">OR</span>
+					<button
+						id="btn2"
+						type="button"
+						class="rounded-md p-1.5 text-base font-semibold border-2 border-solid border-black m-1.5"
+					>
+						Browse File
+					</button>
+					<input type="file" accept="image/*" id="target" hidden />
+				</div>
+			</div>
 
-      <div class="drag-area2">
-        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <h3>Drag & Drop to Upload your target Image</h3>
-        <span>OR</span>
-        <button id="btn2">Browse File</button>
-        <input type="file" accept="image/*" hidden id="input2">
-      </div>
+			<div
+				id="result"
+				class="flex justify-center items-center m-8 flex-col text-4xl"
+			>
+				<h2>Result</h2>
+			</div>
 
-    </div>
-
-
-    <div id="result">
-      <h2>Result</h2>
-    </div>
-
-    <div class="stylize">
-      <button id="btn3">Stylize</button>
-    </div>
-  </div>
-
-
-  <script src="js/script.js"></script>
-
-</body>
-
+			<div class="flex justify-center items-center m-4">
+				<button
+					id="btn3"
+					type="button"
+					class="rounded-md px-3 py-1.5 text-base font-semibold border-2 border-solid border-black m-1"
+				>
+					Stylize
+				</button>
+			</div>
+		</div>
+	</body>
 </html>

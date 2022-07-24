@@ -1,93 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-body {
-	/* min-height: 100vh; */
-	width: 100%;
-	height: 100%;
-	background: #5256ad;
+
+.drag-area.active {
+	border: 2px solid black;
 }
 
-#container {
-	margin-top: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-.header {
-	display: block;
-	margin: 2rem;
-}
-.content {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-}
-.drag-area1,
-.drag-area2 {
-	border: 2px dashed #fff;
-	border-radius: 5px;
-	margin: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 10px 20px;
-	/* margin: 5px; */
-}
-.drag-area.active {
-	border: 2px solid #fff;
-}
 .drag-area .icon {
 	font-size: 100px;
 	color: #fff;
 }
-.drag-area header {
-	font-size: 30px;
-	font-weight: 500;
-	color: #fff;
-}
-.drag-area span {
-	font-size: 25px;
-	font-weight: 500;
-	color: #fff;
-	margin: 10px 0 15px 0;
-}
-button {
-	padding: 10px 25px;
-	font-size: 20px;
-	font-weight: 500;
-	border: none;
-	outline: none;
-	background: #fff;
-	color: #5256ad;
-	border-radius: 5px;
-	cursor: pointer;
-	margin: 10px;
-}
-.drag-area img {
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-	border-radius: 5px;
-}
 
-.stylize {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 2rem;
-}
-
-#result {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 2rem;
-	flex-direction: column;
+img {
+	height: 400px !important;
 }

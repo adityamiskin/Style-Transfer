@@ -1,27 +1,24 @@
-//selecting all required elements
-
 $(document).ready(function () {
-	const dropArea1 = document.querySelector('.drag-area1'),
-		dropArea2 = document.querySelector('.drag-area2'),
+	const dropArea1 = document.querySelector('#drag-area1'),
+		dropArea2 = document.querySelector('#drag-area2'),
 		btn1 = document.querySelector('#btn1'),
 		btn2 = document.querySelector('#btn2'),
-		input1 = document.querySelector('#input1'),
-		input2 = document.querySelector('#input2'),
+		style = document.querySelector('#style'),
+		target = document.querySelector('#target'),
 		btn3 = document.querySelector('#btn3');
-	let file; //this is a global variable and we'll use it inside multiple functions
+	let file;
 
 	var test = [];
 
+	// btn3.disabled = true;
 	btn3.addEventListener('click', async function (e) {
-		btn3.disabled = true;
-		// console.log(test);
 		var something = await Promise.all(
 			test.map((f) => {
 				return readFile(f);
 			}),
 		);
 		var temp = JSON.stringify(something);
-		// console.log(temp);
+
 		fetch('/', {
 			cache: 'no-cache',
 			headers: {
@@ -37,36 +34,31 @@ $(document).ready(function () {
 			const img = document.createElement('img');
 
 			img.src = 'data:image/jpeg;base64,' + data;
-
 			const res = document.querySelector('#result');
-
 			btn3.innerText = 'Refresh';
-
 			btn3.disabled = false;
 
 			img.onload = function () {
 				res.appendChild(img);
 			};
-
-			// console.info(response.json());
 		});
 	});
 
 	btn1.onclick = () => {
-		input1.click();
+		style.click();
 	};
 
 	btn2.onclick = () => {
-		input2.click();
+		target.click();
 	};
 
-	input1.addEventListener('change', function () {
+	style.addEventListener('change', function () {
 		file = this.files[0];
 		dropArea1.classList.add('active');
 		showFile(dropArea1, 'style');
 	});
 
-	input2.addEventListener('change', function () {
+	target.addEventListener('change', function () {
 		file = this.files[0];
 		dropArea2.classList.add('active');
 		showFile(dropArea2, 'target');
